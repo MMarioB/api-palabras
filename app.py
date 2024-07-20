@@ -194,6 +194,7 @@ palabras_comunes = [
     ("condensación", 2), ("sublimación", 2), ("fusión", 2), ("solidificación", 2), ("cristalización", 2)
 ]
 
+
 @contextmanager
 def get_db_connection():
     conn = None
@@ -208,28 +209,38 @@ def get_db_connection():
         if conn:
             conn.close()
 
+
 def init_db():
-    try:
-        with get_db_connection() as conn:
-            conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
-            conn.commit()
-        current_app.logger.info("Table 'palabras' created successfully.")
-    except Exception as e:
-        current_app.logger.error(f"Error creating table: {e}")
+    with app.app_context():
+        try:
+            with get_db_connection() as conn:
+                conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
+                conn.commit()
+            current_app.logger.info("Table 'palabras' created successfully.")
+        except Exception as e:
+            current_app.logger.error(f"Error creating table: {e}")
+
 
 def cargar_palabras():
-    try:
-        with get_db_connection() as conn:
-            conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)', palabras_comunes)
-            conn.commit()
-        current_app.logger.info(f"Loaded {len(palabras_comunes)} words into the database.")
-    except Exception as e:
-        current_app.logger.error(f"Error loading words: {e}")
+    with app.app_context():
+        try:
+            with get_db_connection() as conn:
+                conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)',
+                                 palabras_comunes)
+                conn.commit()
+            current_app.logger.info(f"Loaded {len(palabras_comunes)} words into the database.")
+        except Exception as e:
+            current_app.logger.error(f"Error loading words: {e}")
 
-@app.before_first_request
-def initialize_database():
+
+def setup_database():
     init_db()
     cargar_palabras()
+
+
+# Call setup_database() right after creating the app
+setup_database()
+
 
 @app.route('/palabras', methods=['GET'])
 def obtener_todas_las_palabras():
@@ -240,6 +251,7 @@ def obtener_todas_las_palabras():
     except Exception as e:
         current_app.logger.error(f"Error fetching words: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
+
 
 @app.route('/palabra/aleatoria', methods=['GET'])
 def obtener_palabra_aleatoria():
@@ -259,17 +271,20 @@ def obtener_palabra_aleatoria():
         current_app.logger.error(f"Error fetching random word: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
 
+
 @app.route('/palabras/dificultad/<int:dificultad>', methods=['GET'])
 def obtener_palabras_por_dificultad(dificultad):
     try:
         cantidad = request.args.get('cantidad', default=10, type=int)
         with get_db_connection() as conn:
-            palabras = conn.execute('SELECT palabra, dificultad FROM palabras WHERE dificultad = ? ORDER BY RANDOM() LIMIT ?',
-                                    (dificultad, cantidad)).fetchall()
+            palabras = conn.execute(
+                'SELECT palabra, dificultad FROM palabras WHERE dificultad = ? ORDER BY RANDOM() LIMIT ?',
+                (dificultad, cantidad)).fetchall()
         return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
     except Exception as e:
         current_app.logger.error(f"Error fetching words by difficulty: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
+
 
 @app.route('/palabras/contar', methods=['GET'])
 def contar_palabras():
@@ -280,6 +295,7 @@ def contar_palabras():
     except Exception as e:
         current_app.logger.error(f"Error counting words: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
+
 
 @app.route('/palabras', methods=['POST'])
 def agregar_palabra():
@@ -299,6 +315,7 @@ def agregar_palabra():
         current_app.logger.error(f"Error adding word: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
 
+
 @app.route('/debug/db_status')
 def db_status():
     try:
@@ -308,6 +325,7 @@ def db_status():
     except Exception as e:
         current_app.logger.error(f"Error checking database status: {e}")
         return jsonify({'status': 'error', 'message': str(e)})
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
