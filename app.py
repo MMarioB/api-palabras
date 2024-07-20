@@ -1,3 +1,5 @@
+from werkzeug.urls import url_quote
+from werkzeug.urls import quote as url_quote
 from flask import Flask, jsonify, request
 import sqlite3
 import random
