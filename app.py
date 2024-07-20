@@ -200,7 +200,6 @@ def get_db_connection():
     conn = None
     try:
         if os.environ.get('RENDER'):
-            print("dentro")
             conn = sqlite3.connect(':memory:', check_same_thread=False)
         else:
             conn = sqlite3.connect('palabras_juego.db', check_same_thread=False)
@@ -214,6 +213,7 @@ def get_db_connection():
 def init_db():
     try:
         with get_db_connection() as conn:
+            print("dentro")
             conn.execute('''
                 CREATE TABLE IF NOT EXISTS palabras (
                     palabra TEXT PRIMARY KEY,
