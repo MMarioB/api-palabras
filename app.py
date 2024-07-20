@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, current_app
 import sqlite3
 import os
+from contextlib import contextmanager
 
 app = Flask(__name__)
 
@@ -193,104 +194,119 @@ palabras_comunes = [
     ("condensación", 2), ("sublimación", 2), ("fusión", 2), ("solidificación", 2), ("cristalización", 2)
 ]
 
+@contextmanager
 def get_db_connection():
-    if os.environ.get('RENDER'):
-        # En Render, usa una base de datos en memoria
-        conn = sqlite3.connect(':memory:', check_same_thread=False)
-    else:
-        # Localmente, usa un archivo
-        conn = sqlite3.connect('palabras.db', check_same_thread=False)
-    conn.row_factory = sqlite3.Row
-    return conn
+    conn = None
+    try:
+        if os.environ.get('RENDER'):
+            conn = sqlite3.connect(':memory:', check_same_thread=False)
+        else:
+            conn = sqlite3.connect('palabras.db', check_same_thread=False)
+        conn.row_factory = sqlite3.Row
+        yield conn
+    finally:
+        if conn:
+            conn.close()
 
 def init_db():
     try:
-        conn = get_db_connection()
-        conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
-        conn.commit()
-        print("Table 'palabras' created successfully.")
+        with get_db_connection() as conn:
+            conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
+            conn.commit()
+        current_app.logger.info("Table 'palabras' created successfully.")
     except Exception as e:
-        print(f"Error creating table: {e}")
-    finally:
-        conn.close()
+        current_app.logger.error(f"Error creating table: {e}")
 
 def cargar_palabras():
     try:
-        conn = get_db_connection()
-        conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)', palabras_comunes)
-        conn.commit()
-        print(f"Loaded {len(palabras_comunes)} words into the database.")
+        with get_db_connection() as conn:
+            conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)', palabras_comunes)
+            conn.commit()
+        current_app.logger.info(f"Loaded {len(palabras_comunes)} words into the database.")
     except Exception as e:
-        print(f"Error loading words: {e}")
-    finally:
-        conn.close()
+        current_app.logger.error(f"Error loading words: {e}")
 
-# Inicializa la base de datos inmediatamente
-init_db()
-cargar_palabras()
+@app.before_first_request
+def initialize_database():
+    init_db()
+    cargar_palabras()
 
 @app.route('/palabras', methods=['GET'])
 def obtener_todas_las_palabras():
-    conn = get_db_connection()
-    palabras = conn.execute('SELECT palabra, dificultad FROM palabras').fetchall()
-    conn.close()
-    return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
+    try:
+        with get_db_connection() as conn:
+            palabras = conn.execute('SELECT palabra, dificultad FROM palabras').fetchall()
+        return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
+    except Exception as e:
+        current_app.logger.error(f"Error fetching words: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
 
 @app.route('/palabra/aleatoria', methods=['GET'])
 def obtener_palabra_aleatoria():
-    dificultad = request.args.get('dificultad', type=int)
-    conn = get_db_connection()
-    if dificultad:
-        palabra = conn.execute(
-            'SELECT palabra, dificultad FROM palabras WHERE dificultad = ? ORDER BY RANDOM() LIMIT 1',
-            (dificultad,)).fetchone()
-    else:
-        palabra = conn.execute('SELECT palabra, dificultad FROM palabras ORDER BY RANDOM() LIMIT 1').fetchone()
-    conn.close()
-    if palabra:
-        return jsonify({'palabra': palabra['palabra'], 'dificultad': palabra['dificultad']})
-    return jsonify({'error': 'No se encontraron palabras'}), 404
+    try:
+        dificultad = request.args.get('dificultad', type=int)
+        with get_db_connection() as conn:
+            if dificultad:
+                palabra = conn.execute(
+                    'SELECT palabra, dificultad FROM palabras WHERE dificultad = ? ORDER BY RANDOM() LIMIT 1',
+                    (dificultad,)).fetchone()
+            else:
+                palabra = conn.execute('SELECT palabra, dificultad FROM palabras ORDER BY RANDOM() LIMIT 1').fetchone()
+        if palabra:
+            return jsonify({'palabra': palabra['palabra'], 'dificultad': palabra['dificultad']})
+        return jsonify({'error': 'No se encontraron palabras'}), 404
+    except Exception as e:
+        current_app.logger.error(f"Error fetching random word: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
 
 @app.route('/palabras/dificultad/<int:dificultad>', methods=['GET'])
 def obtener_palabras_por_dificultad(dificultad):
-    cantidad = request.args.get('cantidad', default=10, type=int)
-    conn = get_db_connection()
-    palabras = conn.execute('SELECT palabra, dificultad FROM palabras WHERE dificultad = ? ORDER BY RANDOM() LIMIT ?',
-                            (dificultad, cantidad)).fetchall()
-    conn.close()
-    return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
+    try:
+        cantidad = request.args.get('cantidad', default=10, type=int)
+        with get_db_connection() as conn:
+            palabras = conn.execute('SELECT palabra, dificultad FROM palabras WHERE dificultad = ? ORDER BY RANDOM() LIMIT ?',
+                                    (dificultad, cantidad)).fetchall()
+        return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
+    except Exception as e:
+        current_app.logger.error(f"Error fetching words by difficulty: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
 
 @app.route('/palabras/contar', methods=['GET'])
 def contar_palabras():
-    conn = get_db_connection()
-    count = conn.execute('SELECT COUNT(*) FROM palabras').fetchone()[0]
-    conn.close()
-    return jsonify({'total_palabras': count})
+    try:
+        with get_db_connection() as conn:
+            count = conn.execute('SELECT COUNT(*) FROM palabras').fetchone()[0]
+        return jsonify({'total_palabras': count})
+    except Exception as e:
+        current_app.logger.error(f"Error counting words: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
 
 @app.route('/palabras', methods=['POST'])
 def agregar_palabra():
-    datos = request.json
-    if not datos or 'palabra' not in datos or 'dificultad' not in datos:
-        return jsonify({'error': 'Se requiere palabra y dificultad'}), 400
-
-    conn = get_db_connection()
     try:
-        conn.execute('INSERT INTO palabras (palabra, dificultad) VALUES (?, ?)',
-                     (datos['palabra'], datos['dificultad']))
-        conn.commit()
+        datos = request.json
+        if not datos or 'palabra' not in datos or 'dificultad' not in datos:
+            return jsonify({'error': 'Se requiere palabra y dificultad'}), 400
+
+        with get_db_connection() as conn:
+            conn.execute('INSERT INTO palabras (palabra, dificultad) VALUES (?, ?)',
+                         (datos['palabra'], datos['dificultad']))
+            conn.commit()
         return jsonify({'mensaje': 'Palabra agregada exitosamente'}), 201
     except sqlite3.IntegrityError:
         return jsonify({'error': 'La palabra ya existe en la base de datos'}), 409
-    finally:
-        conn.close()
+    except Exception as e:
+        current_app.logger.error(f"Error adding word: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
 
 @app.route('/debug/db_status')
 def db_status():
     try:
-        conn = get_db_connection()
-        count = conn.execute('SELECT COUNT(*) FROM palabras').fetchone()[0]
+        with get_db_connection() as conn:
+            count = conn.execute('SELECT COUNT(*) FROM palabras').fetchone()[0]
         return jsonify({'status': 'ok', 'word_count': count})
     except Exception as e:
+        current_app.logger.error(f"Error checking database status: {e}")
         return jsonify({'status': 'error', 'message': str(e)})
 
 if __name__ == '__main__':
