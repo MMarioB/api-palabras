@@ -203,20 +203,31 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-
 def init_db():
-    conn = get_db_connection()
-    conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
-    conn.commit()
-    conn.close()
-
+    try:
+        conn = get_db_connection()
+        conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
+        conn.commit()
+        print("Table 'palabras' created successfully.")
+    except Exception as e:
+        print(f"Error creating table: {e}")
+    finally:
+        conn.close()
 
 def cargar_palabras():
-    conn = get_db_connection()
-    conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)', palabras_comunes)
-    conn.commit()
-    conn.close()
+    try:
+        conn = get_db_connection()
+        conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)', palabras_comunes)
+        conn.commit()
+        print(f"Loaded {len(palabras_comunes)} words into the database.")
+    except Exception as e:
+        print(f"Error loading words: {e}")
+    finally:
+        conn.close()
 
+# Inicializa la base de datos inmediatamente
+init_db()
+cargar_palabras()
 
 @app.route('/palabras', methods=['GET'])
 def obtener_todas_las_palabras():
@@ -224,7 +235,6 @@ def obtener_todas_las_palabras():
     palabras = conn.execute('SELECT palabra, dificultad FROM palabras').fetchall()
     conn.close()
     return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
-
 
 @app.route('/palabra/aleatoria', methods=['GET'])
 def obtener_palabra_aleatoria():
@@ -241,7 +251,6 @@ def obtener_palabra_aleatoria():
         return jsonify({'palabra': palabra['palabra'], 'dificultad': palabra['dificultad']})
     return jsonify({'error': 'No se encontraron palabras'}), 404
 
-
 @app.route('/palabras/dificultad/<int:dificultad>', methods=['GET'])
 def obtener_palabras_por_dificultad(dificultad):
     cantidad = request.args.get('cantidad', default=10, type=int)
@@ -251,14 +260,12 @@ def obtener_palabras_por_dificultad(dificultad):
     conn.close()
     return jsonify([{'palabra': row['palabra'], 'dificultad': row['dificultad']} for row in palabras])
 
-
 @app.route('/palabras/contar', methods=['GET'])
 def contar_palabras():
     conn = get_db_connection()
     count = conn.execute('SELECT COUNT(*) FROM palabras').fetchone()[0]
     conn.close()
     return jsonify({'total_palabras': count})
-
 
 @app.route('/palabras', methods=['POST'])
 def agregar_palabra():
@@ -277,12 +284,14 @@ def agregar_palabra():
     finally:
         conn.close()
 
-
-@app.before_first_request
-def before_first_request():
-    init_db()
-    cargar_palabras()
-
+@app.route('/debug/db_status')
+def db_status():
+    try:
+        conn = get_db_connection()
+        count = conn.execute('SELECT COUNT(*) FROM palabras').fetchone()[0]
+        return jsonify({'status': 'ok', 'word_count': count})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
