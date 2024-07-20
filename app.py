@@ -1,7 +1,5 @@
-from werkzeug.utils import url_quote
 from flask import Flask, jsonify, request
 import sqlite3
-import random
 import os
 
 app = Flask(__name__)
