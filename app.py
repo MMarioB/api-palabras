@@ -200,9 +200,9 @@ def get_db_connection():
     conn = None
     try:
         if os.environ.get('RENDER'):
-            conn = sqlite3.connect(':memory:', check_same_thread=False)
+            conn = sqlite3.connect('/tmp/palabras_juego.db')
         else:
-            conn = sqlite3.connect('palabras.db', check_same_thread=False)
+            conn = sqlite3.connect('palabras_juego.db')
         conn.row_factory = sqlite3.Row
         yield conn
     finally:
@@ -214,7 +214,12 @@ def init_db():
     with app.app_context():
         try:
             with get_db_connection() as conn:
-                conn.execute('CREATE TABLE IF NOT EXISTS palabras (palabra TEXT PRIMARY KEY, dificultad INTEGER)')
+                conn.execute('''
+                    CREATE TABLE IF NOT EXISTS palabras (
+                        palabra TEXT PRIMARY KEY,
+                        dificultad INTEGER
+                    )
+                ''')
                 conn.commit()
             current_app.logger.info("Table 'palabras' created successfully.")
         except Exception as e:
@@ -231,15 +236,6 @@ def cargar_palabras():
             current_app.logger.info(f"Loaded {len(palabras_comunes)} words into the database.")
         except Exception as e:
             current_app.logger.error(f"Error loading words: {e}")
-
-
-def setup_database():
-    init_db()
-    cargar_palabras()
-
-
-# Call setup_database() right after creating the app
-setup_database()
 
 
 @app.route('/palabras', methods=['GET'])
@@ -328,5 +324,8 @@ def db_status():
 
 
 if __name__ == '__main__':
+    with app.app_context():
+        init_db()
+        cargar_palabras()
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
