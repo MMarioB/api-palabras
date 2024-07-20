@@ -211,25 +211,24 @@ def get_db_connection():
 
 
 def init_db():
-    with app.app_context():
-        try:
-            with get_db_connection() as conn:
-                conn.execute('''
-                    CREATE TABLE IF NOT EXISTS palabras (
-                        palabra TEXT PRIMARY KEY,
-                        dificultad INTEGER
-                    )
-                ''')
-                conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)',
-                                 palabras_comunes)
-                conn.commit()
-            current_app.logger.info("Table 'palabras' created and populated successfully.")
-        except Exception as e:
-            current_app.logger.error(f"Error initializing database: {e}")
+    try:
+        with get_db_connection() as conn:
+            conn.execute('''
+                CREATE TABLE IF NOT EXISTS palabras (
+                    palabra TEXT PRIMARY KEY,
+                    dificultad INTEGER
+                )
+            ''')
+            conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)',
+                             palabras_comunes)
+            conn.commit()
+        current_app.logger.info("Table 'palabras' created and populated successfully.")
+    except Exception as e:
+        current_app.logger.error(f"Error initializing database: {e}")
 
 
-@app.before_first_request
-def initialize_database():
+# Initialize the database when the app is created
+with app.app_context():
     init_db()
 
 
