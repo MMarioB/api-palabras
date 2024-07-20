@@ -1,0 +1,247 @@
+2021-06-15 10:37:19,796 - instabot version: 0.117.0 (bot) - INFO - Instabot version: 0.117.0 Started
+2021-06-15 10:37:19,796 - instabot version: 0.117.0 (bot) - DEBUG - Bot imported from /Users/mario/PycharmProjects/botCanalla/venv/lib/python3.8/site-packages/instabot/bot/bot.py
+2021-06-15 10:37:19,796 - instabot version: 0.117.0 (api_login) - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2021-06-15 10:37:20,055 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [200]>
+2021-06-15 10:37:20,293 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2021-06-15 10:37:20,530 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2021-06-15 10:37:20,752 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/contact_point_prefill/ returned response: <Response [200]>
+2021-06-15 10:37:23,910 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/login/ returned response: <Response [200]>
+2021-06-15 10:37:23,910 - instabot version: 0.117.0 (api) - INFO - Logged-in successfully as 'proky2021_'!
+2021-06-15 10:37:23,910 - instabot version: 0.117.0 (api_login) - INFO - LOGIN FLOW! Just logged-in: True
+2021-06-15 10:37:24,317 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2021-06-15 10:37:24,726 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2021-06-15 10:37:25,034 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: zr/token/result/?device_id=android-18949c3d91d9117b&token_hash=&custom_device_id=android-18949c3d91d9117b&fetch_reason=token_expired returned response: <Response [200]>
+2021-06-15 10:37:25,342 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: multiple_accounts/get_account_family/ returned response: <Response [200]>
+2021-06-15 10:37:25,648 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2021-06-15 10:37:26,262 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: igtv/browse_feed/?prefetch=1 returned response: <Response [200]>
+2021-06-15 10:37:26,546 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: creatives/ar_class/ returned response: <Response [200]>
+2021-06-15 10:37:26,877 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: feed/reels_tray/ returned response: <Response [200]>
+2021-06-15 10:37:27,594 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: feed/timeline/ returned response: <Response [200]>
+2021-06-15 10:37:27,925 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: media/blocked/ returned response: <Response [200]>
+2021-06-15 10:37:28,618 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: news/inbox/ returned response: <Response [200]>
+2021-06-15 10:37:28,925 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: loom/fetch_config/ returned response: <Response [200]>
+2021-06-15 10:37:29,335 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: scores/bootstrap/users/?surfaces=["autocomplete_user_list","coefficient_besties_list_ranking","coefficient_rank_recipient_user_suggestion","coefficient_ios_section_test_bootstrap_ranking","coefficient_direct_recipients_ranking_variant_2"] returned response: <Response [200]>
+2021-06-15 10:37:29,742 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: business/eligibility/get_monetization_products_eligibility_data/?product_types=branded_content returned response: <Response [200]>
+2021-06-15 10:37:30,359 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: business/branded_content/should_require_professional_account/ returned response: <Response [200]>
+2021-06-15 10:37:30,666 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: linked_accounts/get_linkage_status/ returned response: <Response [200]>
+2021-06-15 10:37:30,972 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: locations/request_country/ returned response: <Response [200]>
+2021-06-15 10:37:31,279 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: qp/get_cooldowns/?signed_body=signed_body=4b9c516a5410a3bc128e09c6104a7f042146b9c2023870560c63a43a7f66781c.4&ig_sig_key_version=4&ig_sig_key_version=4 returned response: <Response [200]>
+2021-06-15 10:37:31,588 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: users/arlink_download_info/?version_override=2.2.1 returned response: <Response [200]>
+2021-06-15 10:37:31,998 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: users/48286095729/info/ returned response: <Response [200]>
+2021-06-15 10:37:32,406 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: direct_v2/get_presence/ returned response: <Response [200]>
+2021-06-15 10:37:32,816 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: direct_v2/inbox/?visual_message_return_type=unseen&thread_message_limit=10&persistentBadging=true&limit=20 returned response: <Response [200]>
+2021-06-15 10:37:33,431 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: direct_v2/inbox/?visual_message_return_type=unseen&persistentBadging=true&limit=0 returned response: <Response [200]>
+2021-06-15 10:37:33,738 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: discover/topical_explore/?is_prefetch=true&omit_cover_media=true&use_sectional_payload=true&timezone_offset=0&session_id=c3383a83-f9b2-429d-aa4f-4689583f7018&include_fixed_destinations=true returned response: <Response [200]>
+2021-06-15 10:37:34,045 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: notifications/badge/ returned response: <Response [200]>
+2021-06-15 10:37:34,455 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qp/batch_fetch/ returned response: <Response [200]>
+2021-06-15 10:37:34,456 - instabot version: 0.117.0 (bot_checkpoint) - DEBUG - Loading Checkpoint file from: /Users/mario/PycharmProjects/botCanalla/config/proky2021_.checkpoint
+2021-06-15 10:37:34,968 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: users/puntocanalla/usernameinfo/ returned response: <Response [200]>
+2021-06-15 10:37:35,684 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: users/48085245358/info/ returned response: <Response [200]>
+2021-06-15 10:37:36,298 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: friendships/48085245358/followers/?rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90 returned response: <Response [200]>
+2021-06-15 10:37:36,941 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: friendships/48085245358/followers/?rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&max_id=100 returned response: <Response [200]>
+2021-06-15 10:37:37,425 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: friendships/48085245358/followers/?rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&max_id=200 returned response: <Response [200]>
+2021-06-15 10:37:37,428 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_1423984155's feed:
+2021-06-15 10:37:37,731 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/1423984155/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:37,731 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:37,732 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:37,732 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:37,732 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:37,732 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:37,732 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:37,732 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_35878534596's feed:
+2021-06-15 10:37:38,245 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/35878534596/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:38,247 - instabot version: 0.117.0 (bot_filter) - INFO - Received 11 medias.
+2021-06-15 10:37:38,247 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:38,247 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:38,247 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_32055648912's feed:
+2021-06-15 10:37:38,758 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/32055648912/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:38,758 - instabot version: 0.117.0 (bot_filter) - INFO - Received 1 medias.
+2021-06-15 10:37:38,758 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:38,759 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:38,759 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_13357493975's feed:
+2021-06-15 10:37:39,268 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/13357493975/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:39,269 - instabot version: 0.117.0 (bot_filter) - INFO - Received 1 medias.
+2021-06-15 10:37:39,269 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:39,269 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:39,269 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_36019366518's feed:
+2021-06-15 10:37:40,191 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/36019366518/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:40,194 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:40,194 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:40,194 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:40,194 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_1353480402's feed:
+2021-06-15 10:37:40,495 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/1353480402/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:40,495 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:40,495 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:40,495 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:40,495 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:40,496 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:40,496 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:40,496 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_30849382017's feed:
+2021-06-15 10:37:40,799 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/30849382017/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:40,800 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_47948034682's feed:
+2021-06-15 10:37:41,111 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/47948034682/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:41,112 - instabot version: 0.117.0 (bot_filter) - INFO - Received 0 medias.
+2021-06-15 10:37:41,112 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:41,112 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:41,112 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_484346187's feed:
+2021-06-15 10:37:41,623 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/484346187/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:41,624 - instabot version: 0.117.0 (bot_filter) - INFO - Received 4 medias.
+2021-06-15 10:37:41,625 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:41,625 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:41,625 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_46703960797's feed:
+2021-06-15 10:37:41,928 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/46703960797/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:41,928 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:41,928 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:41,928 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:41,929 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:41,929 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:41,929 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:41,929 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_22234235652's feed:
+2021-06-15 10:37:42,235 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/22234235652/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:42,236 - instabot version: 0.117.0 (bot_filter) - INFO - Received 0 medias.
+2021-06-15 10:37:42,236 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:42,236 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:42,236 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_1558869's feed:
+2021-06-15 10:37:42,647 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/1558869/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:42,647 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:42,647 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:42,647 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:42,647 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:42,648 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:42,648 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:42,648 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_1491854887's feed:
+2021-06-15 10:37:43,468 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/1491854887/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:43,471 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:43,472 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:43,472 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:43,472 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_571800291's feed:
+2021-06-15 10:37:43,772 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/571800291/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:43,772 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:43,773 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:43,773 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:43,773 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:43,773 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:43,773 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:43,773 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_32071400397's feed:
+2021-06-15 10:37:44,079 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/32071400397/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:44,079 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:44,079 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:44,080 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:44,080 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:44,080 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:44,080 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:44,080 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_35861979709's feed:
+2021-06-15 10:37:44,938 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/35861979709/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:44,941 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:44,941 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:44,941 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:44,941 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_605259866's feed:
+2021-06-15 10:37:45,971 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/605259866/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:45,977 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:45,977 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:45,977 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:45,977 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_45287233250's feed:
+2021-06-15 10:37:46,437 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/45287233250/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:46,439 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:46,440 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:46,440 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:46,440 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_1489675884's feed:
+2021-06-15 10:37:46,845 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/1489675884/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:46,845 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:46,845 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:46,846 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:46,846 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:46,846 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:46,846 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:46,847 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_283525477's feed:
+2021-06-15 10:37:47,664 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/283525477/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:47,667 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:47,667 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:47,668 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:47,668 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_283172486's feed:
+2021-06-15 10:37:48,553 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/283172486/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:48,559 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:48,559 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:48,559 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:48,559 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_173799666's feed:
+2021-06-15 10:37:49,835 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/173799666/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:49,838 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:49,838 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:49,838 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:49,838 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_7115991583's feed:
+2021-06-15 10:37:51,456 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/7115991583/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:51,459 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:51,459 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 1 medias left.
+2021-06-15 10:37:51,459 - instabot version: 0.117.0 (bot_like) - INFO - Going to like 1 medias.
+2021-06-15 10:37:51,863 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: media/2280548143794565693_7115991583/info/ returned response: <Response [200]>
+2021-06-15 10:37:52,271 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: media/2280548143794565693_7115991583/info/ returned response: <Response [200]>
+2021-06-15 10:37:52,707 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: media/2280548143794565693_7115991583/comments/ returned response: <Response [200]>
+2021-06-15 10:37:53,092 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: media/2280548143794565693_7115991583/info/ returned response: <Response [200]>
+2021-06-15 10:37:53,093 - instabot version: 0.117.0 (api) - DEBUG - post data: {"inventory_source": "media_or_ad", "media_id": "2280548143794565693_7115991583", "radio_type": "wifi-none", "container_module": "feed_timeline", "feed_position": "0", "is_carousel_bumped_post": "false", "device_id": "android-18949c3d91d9117b", "_uuid": "f1231055-3313-4a6e-ad97-51ce10153a90", "_uid": "48286095729", "_csrftoken": "jOqLDIDl21tpmfuHrlnAEbX1gSjgn92c"}
+2021-06-15 10:37:54,219 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: media/2280548143794565693_7115991583/like/ returned response: <Response [200]>
+2021-06-15 10:37:54,220 - instabot version: 0.117.0 (bot_like) - INFO - Liked media 2280548143794565693_7115991583.
+2021-06-15 10:37:54,221 - instabot version: 0.117.0 (bot_like) - INFO - DONE: Total liked 1 medias.
+2021-06-15 10:37:54,221 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_266187339's feed:
+2021-06-15 10:37:54,524 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/266187339/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:54,524 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:54,524 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:54,524 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:54,524 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:54,525 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:54,525 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:54,525 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_38218853599's feed:
+2021-06-15 10:37:55,345 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/38218853599/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:55,348 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:55,348 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:55,348 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:55,348 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_519631970's feed:
+2021-06-15 10:37:55,757 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/519631970/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:55,758 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:55,758 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:55,758 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:55,758 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:55,759 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:55,759 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:55,759 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_459409693's feed:
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/459409693/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:55,989 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_43234277277's feed:
+2021-06-15 10:37:56,368 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/43234277277/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:56,369 - instabot version: 0.117.0 (bot_filter) - INFO - Received 0 medias.
+2021-06-15 10:37:56,369 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 0 medias left.
+2021-06-15 10:37:56,369 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:56,369 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_2266919's feed:
+2021-06-15 10:37:56,675 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/2266919/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:56,675 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:56,675 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:56,675 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:56,675 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:56,675 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:56,676 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:56,676 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_403939820's feed:
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/403939820/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [400]>
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Not authorized to view user","status":"fail"}'
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: Not authorized to view user
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: {}
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (bot_get) - WARNING - This is a private account.
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (bot_like) - INFO - None medias received: account is closed or medias have been filtered.
+2021-06-15 10:37:56,915 - instabot version: 0.117.0 (bot_like) - INFO - Liking user_223047467's feed:
+2021-06-15 10:37:57,803 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: feed/user/223047467/?max_id=&min_timestamp=None&rank_token=48286095729_f1231055-3313-4a6e-ad97-51ce10153a90&ranked_content=true returned response: <Response [200]>
+2021-06-15 10:37:57,806 - instabot version: 0.117.0 (bot_filter) - INFO - Received 18 medias.
+2021-06-15 10:37:57,806 - instabot version: 0.117.0 (bot_filter) - INFO - After filtration 1 medias left.
+2021-06-15 10:37:57,806 - instabot version: 0.117.0 (bot_like) - INFO - Going to like 1 medias.
+2021-06-15 10:39:14,966 - instabot version: 0.117.0 (bot_checkpoint) - DEBUG - Saving Checkpoint file to: /Users/mario/PycharmProjects/botCanalla/config/proky2021_.checkpoint
+2021-06-15 10:39:14,967 - instabot version: 0.117.0 (bot) - INFO - Total likes: 1/86
+2021-06-15 10:39:14,967 - instabot version: 0.117.0 (bot) - INFO - Total requests: 72
