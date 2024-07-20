@@ -200,6 +200,7 @@ def get_db_connection():
     conn = None
     try:
         if os.environ.get('RENDER'):
+            print("dentro")
             conn = sqlite3.connect(':memory:', check_same_thread=False)
         else:
             conn = sqlite3.connect('palabras_juego.db', check_same_thread=False)
