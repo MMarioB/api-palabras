@@ -200,9 +200,9 @@ def get_db_connection():
     conn = None
     try:
         if os.environ.get('RENDER'):
-            conn = sqlite3.connect('/tmp/palabras_juego.db')
+            conn = sqlite3.connect(':memory:', check_same_thread=False)
         else:
-            conn = sqlite3.connect('palabras_juego.db')
+            conn = sqlite3.connect('palabras.db', check_same_thread=False)
         conn.row_factory = sqlite3.Row
         yield conn
     finally:
@@ -220,22 +220,22 @@ def init_db():
                         dificultad INTEGER
                     )
                 ''')
-                conn.commit()
-            current_app.logger.info("Table 'palabras' created successfully.")
-        except Exception as e:
-            current_app.logger.error(f"Error creating table: {e}")
-
-
-def cargar_palabras():
-    with app.app_context():
-        try:
-            with get_db_connection() as conn:
                 conn.executemany('INSERT OR REPLACE INTO palabras (palabra, dificultad) VALUES (?, ?)',
                                  palabras_comunes)
                 conn.commit()
-            current_app.logger.info(f"Loaded {len(palabras_comunes)} words into the database.")
+            current_app.logger.info("Table 'palabras' created and populated successfully.")
         except Exception as e:
-            current_app.logger.error(f"Error loading words: {e}")
+            current_app.logger.error(f"Error initializing database: {e}")
+
+
+@app.before_first_request
+def initialize_database():
+    init_db()
+
+
+@app.route('/')
+def home():
+    return "API de palabras está funcionando"
 
 
 @app.route('/palabras', methods=['GET'])
@@ -324,8 +324,5 @@ def db_status():
 
 
 if __name__ == '__main__':
-    with app.app_context():
-        init_db()
-        cargar_palabras()
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
