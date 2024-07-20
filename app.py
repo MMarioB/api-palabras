@@ -202,7 +202,7 @@ def get_db_connection():
         if os.environ.get('RENDER'):
             conn = sqlite3.connect(':memory:', check_same_thread=False)
         else:
-            conn = sqlite3.connect('palabras.db', check_same_thread=False)
+            conn = sqlite3.connect('palabras_juego.db', check_same_thread=False)
         conn.row_factory = sqlite3.Row
         yield conn
     finally:
