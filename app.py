@@ -4,7 +4,7 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173","https://mmariob.github.io/complicidad-ganadora/"]}})
 
 palabras_comunes = [
     ("casa", 1), ("perro", 1), ("gato", 1), ("árbol", 1), ("libro", 1),
